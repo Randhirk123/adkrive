@@ -1,0 +1,72 @@
+
+
+.cmn-btn, .side-tab-nav.style--white .nav-link.active, .side-tab-nav.style--white .nav-link.active, .scroll-to-top, .cmn-list li::before, .choose-card::before, .video-icon, .testimonial-slider .slick-dots li.slick-active button, .brand-section, .sidebar .widget .widget__title::after,.contact-info-card__icon, .contact-info-card__icon::after, .account-tab-nav .nav-item .nav-link.active{
+background-color:#c716b2 !important;
+}
+
+.video-icon:hover, .header.menu-fixed .header__bottom, .testimonial-wrapper, .footer{
+background-color:#1c4e06 !important;
+}
+
+.base--color, .counter-card__icon i, .stat_text,.breadcrumb-item a, .page-breadcrumb li a:hover, .page-breadcrumb li:first-child::before,
+.header .main-menu li a:hover, .header .main-menu li a:focus,.contact-info-card__content a:hover, .footer-short-links
+{
+color:#c716b2 !important;
+}
+
+a:hover{
+color: #c716b2}
+
+.side-tab-nav.style--white .nav-link.active,.form-control:focus{
+border-color:#c716b2 !important;
+}
+
+.preloader .animated-preloader, .preloader .animated-preloader::before{
+background:#c716b2!important;
+}
+
+.cmn-btn:hover{
+box-shadow: 0 5px 15px 2px #c716b27F !important;
+}
+
+.choose-card.style--two:hover{
+background-color:#c716b20D !important;
+}
+
+.form-control:focus{
+box-shadow: 0 0 5px #c716b20D !important;
+}
+
+.contact-info-card:hover {
+box-shadow: 0 5px 15px #c716b21A !important;
+}
+
+
+.contact-info-card::before {
+border-top: 3px solid #c716b260;
+border-left: 3px solid #c716b260;
+}
+
+.contact-info-card::after {
+border-bottom: 3px solid #c716b260;
+border-right: 3px solid #c716b260;
+}
+
+.contact-info-card:hover::before, .contact-info-card:hover::after {
+border-color: #c716b2;
+}
+
+.footer-short-links li a:hover {
+color: #c716b2;
+}.footer-short-links li a:hover {
+color: #c716b2;
+}
+
+.para-white a {
+color: #c716b2;
+}
+
+.testimonial-slider .slick-dots li.slick-active button
+{
+border-color: #c716b2;
+}

@@ -1,0 +1,506 @@
+body{
+    font-family: 'Raleway', sans-serif;
+    background: #f9f9f9;
+}
+.p-30{
+    padding:30px;
+}
+.main-datatable {
+    padding: 0px; 
+    border: 1px solid #f3f2f2;
+    border-bottom: 0;
+    box-shadow: 0px 2px 10px rgba(0,0,0,.05);
+}
+.d-flex{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.card_body{ 
+    background-color: white;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+.main-datatable .row {
+    margin: 0;
+} 
+/* .searchInput {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin: 20px 0px;
+}
+.searchInput input {
+    
+    
+    margin-left: 8px;
+    height: 34px;
+    width: 100%;
+} */
+
+
+
+.dim_button {
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    padding-top: 6px;
+    background: rgb(57, 85, 136);
+    margin-right: 10px;
+    position: relative;
+    cursor: pointer;
+    font-weight: 600;
+    margin-bottom: 20px;
+} 
+.createSegment a { 
+    margin-bottom: 0px;
+    border-radius: 50px;
+    background:#007bff;
+    border: 1px solid #007bff;
+    color: white;
+    transition: all .4s ease;
+}
+.createSegment a:hover, .createSegment a:focus {
+    transition: all .4s ease;
+    background:green;
+    color: #fff;
+}
+.add_flex{
+    display: flex;
+    justify-content: flex-end;
+    padding-right:0px;
+}
+.main-datatable .dataTable.no-footer {
+    border-bottom: 1px solid #eee;
+}
+.main-datatable .cust-datatable thead {
+    background-color: #f9f9f9;
+}
+.main-datatable .cust-datatable>thead>tr>th {
+    border-bottom-width: 0;
+    color: #443f3f;
+    font-weight: 600;
+    padding: 16px 15px;
+    vertical-align: middle;
+    padding-left: 18px;
+    text-align: center;
+}
+.main-datatable .cust-datatable>tbody td {
+    padding: 10px 15px 10px 18px;
+    color: #333232;
+    font-size: 13px;
+    font-weight: 500;
+    word-break: break-word;
+    border-color: #eee;
+    text-align: center;
+    vertical-align: middle;
+}
+.main-datatable .cust-datatable>tbody tr {
+    border-top: none;
+}
+.main-datatable .table > tbody > tr:nth-child(even) {
+    background: #f9f9f9;
+}
+.btn-group.open .dropdown-toggle {
+    box-shadow: none;
+}
+.main-datatable .dropdown_icon {
+    display: inline-block;
+    color: #8a8a8a;
+    font-size: 12px;
+    border: 1px solid #d4d4d4;
+    padding: 10px 11px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.btn-group i{
+    color: #8e8e8e; 
+    margin: 2px;
+}
+.main-datatable .actionCust a {
+    display: inline-block;
+    color: #8a8a8a;
+    font-size: 12px;
+    border: 1px solid #d4d4d4;
+    padding: 10px 11px;
+    margin: -9px 3px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.main-datatable .actionCust a i{
+    color: #8e8e8e;
+    margin: 2px;
+}
+.main-datatable .dropdown-menu {
+    padding: 0;
+    border-radius: 4px;
+    box-shadow: 10px 10px 20px #c8c8c8;
+    margin-top: 10px;
+    left: -65px;
+    top: 32px;
+}
+.main-datatable .dropdown-menu > li > a {
+    display: block;
+    padding: 12px 20px;
+    clear: both;
+    font-weight: normal;
+    line-height: 1.42857;
+    color: #333333;
+    white-space: nowrap;
+    border-bottom: 1px solid #d4d4d4;
+}
+.main-datatable .dropdown-menu > li > a:hover, 
+.main-datatable .dropdown-menu > li > a:focus {
+    color: #fff;
+    background: #007bff;
+}
+.main-datatable .dropdown-menu > li > a:hover i{
+    color: #fff; 
+}
+.main-datatable .dropdown-menu:before {
+    position: absolute;
+    top: -7px;
+    left: 78px;
+    display: inline-block;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid #d4d4d4;
+    border-left: 7px solid transparent;
+    border-bottom-color: #d4d4d4;
+    content: '';
+}
+.main-datatable .dropdown-menu:after {
+    position: absolute;
+    top: -6px;
+    left: 78px;
+    display: inline-block;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid #ffffff;
+    border-left: 6px solid transparent;
+    content: '';
+}
+.dropdown-menu i {
+    margin-right: 8px;
+}
+.main-datatable .dataTables_wrapper .dataTables_paginate .paginate_button {
+    color: #999999 !important;
+    background-color: #f6f6f6 !important;
+    border-color: #d4d4d4 !important;
+    border-radius: 40px;
+    margin: 5px 3px;
+}
+.main-datatable .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    color: #fff !important;
+    border: 1px solid #3d96f5 !important;
+    background: #4da3ff !important;
+    box-shadow: none;
+}
+.main-datatable .dataTables_wrapper .dataTables_paginate .paginate_button.current, 
+.main-datatable .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+    color: #fff !important;
+    border-color: transparent !important;
+    background: #007bff !important;
+}
+.main-datatable .dataTables_paginate {
+    padding-top: 0 !important;
+    margin: 15px 10px;
+    float: right !important;
+}
+.mode{
+    padding:4px 10px;
+    line-height: 13px;
+    color:#fff;
+    font-weight: 400;
+    border-radius: 1rem;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -ms-border-radius: 1rem;
+    -o-border-radius: 1rem;
+    font-size:11px;
+    letter-spacing: 0.4px;
+}
+.mode_on{
+    background-color: #09922d;
+}
+.mode_off{
+    background-color: #8b9096;
+}
+.mode_process a{
+   text-decoration: none;
+   font-size: 13.5px;
+   font-weight: inherit;
+}
+.mode_done{
+    background-color: #03a9f3;
+}
+@media only screen and (max-width:1200px){
+    .overflow-x{
+        overflow-x:scroll;
+    }
+    .overflow-x::-webkit-scrollbar{
+        width:5px;
+        height:6px;
+    }
+    .overflow-x::-webkit-scrollbar-thumb{
+        background-color: #888;
+    }
+    .overflow-x::-webkit-scrollbar-track{
+         background-color: #f1f1f1;
+    }
+}
+
+
+
+
+/* Custom Checkbox */
+.control {
+  display: block;
+  position: relative;
+  margin-bottom: 25px;
+  cursor: pointer;
+  font-size: 18px; }
+
+.control input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0; }
+
+.control__indicator {
+  position: absolute;
+  top: 2px;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  border-radius: 4px;
+  border: 2px solid #ccc;
+  background: transparent; }
+
+.control--radio .control__indicator {
+  border-radius: 50%; }
+
+.control:hover input ~ .control__indicator,
+.control input:focus ~ .control__indicator {
+  border: 2px solid #007bff; }
+
+.control input:checked ~ .control__indicator {
+  border: 2px solid #007bff;
+  background: #007bff; }
+
+.control input:disabled ~ .control__indicator {
+  background: #e6e6e6;
+  opacity: 0.6;
+  pointer-events: none;
+  border: 2px solid #ccc; }
+
+.control__indicator:after {
+  font-family: 'icomoon';
+  content: '\e5ca';
+  position: absolute;
+  display: none; }
+
+.control input:checked ~ .control__indicator:after {
+  display: block;
+  color: #fff; }
+  
+  .switch {
+  position: relative;
+  display: inline-block;
+  width: 32px;
+  height: 20px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 2px;
+  background-color:white;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+input:checked + .slider {
+  background-color:#4cd964;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(32px);
+  -ms-transform: translateX(32px);
+  transform: translateX(12px);
+}
+
+/* Rounded sliders */
+.slider{
+  border-radius: 16px;
+}
+
+.slider:before {
+  border-radius: 50%;
+}
+
+
+.dataTables_paginate>span>a {
+    margin-bottom: 0px !important;
+    padding: 1px 5px !important;
+}
+
+.dataTables_paginate>a {
+    margin-bottom: 0px !important;
+    padding: 1px 5px !important;
+}
+.dataTables_filter input {
+	width:90%;
+	height:30px;
+	text-align: center;
+	
+	
+	 }
+	 
+	 
+   .dataTables_length {
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+ .wrap
+ {
+ 	width: 90%;
+ 	height:15px;
+ 	text-align:center;
+  border-radius: 5px;
+  padding: 5px;
+ }
+ api
+ {
+ 	font-size: 5px;
+ }
+.api a
+{
+	text-decoration: none;
+	font-size: 14px;
+	font-weight: inherit;
+}
+.dataTables_filter {
+   
+  margin-right: 50px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  position: relative;
+ 
+   
+}
+
+.toolbar #elementOne {
+    float: right;
+   
+}
+
+.toolbar #elementTwo {
+    float: left;
+    margin-top:0px;
+    font-weight: lighter;
+    color: fuchsia;
+}
+.btn.btn-primary, .btn.btn-primary:active, .btn.btn-primary:focus, .btn.btn-primary:hover{
+	box-shadow: none;
+    text-shadow: none;
+}
+
+.btn.btn-primary {
+    background-color: #08c;
+    border-color: #08c;
+    color: #fff;
+}
+
+.btn.btn-primary {
+    box-shadow: 0 1px 1px rgb(0 0 0 / 14%), inset 0 1px 0 hsl(0deg 0% 100% / 20%);
+    text-shadow: 0 1px 2px rgb(0 0 0 / 20%);
+    -webkit-transition: all .2s linear;
+    -moz-transition: all .2s linear;
+    -ms-transition: all .2s linear;
+    -o-transition: all .2s linear;
+    transition: all .2s linear;
+}
+
+a, a.btn, a:hover {
+    text-decoration: none;
+}
+
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+a {
+    font-weight: 300;
+}
+a {
+    color: #337ab7;
+    text-decoration: none;
+}
+a {
+    background-color: transparent;
+}
+
+user agent stylesheet
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.switch #show
+{
+	font-size: 15px;
+}
+
+.show
+{
+	color:red;
+	padding: inherit;
+}
+
