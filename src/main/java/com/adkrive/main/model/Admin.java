@@ -33,7 +33,7 @@ public class Admin {
 	private String email;
 	
 
-	@Column(name="username")
+	@Column(name="userName")
 	public String userName;
 	
 	@Temporal(TemporalType.TIMESTAMP)
