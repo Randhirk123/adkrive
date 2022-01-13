@@ -2,6 +2,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <c:set var="req" value="${pageContext.request}" />
 <c:set var="url">${req.requestURL}</c:set>
 <c:set var="uri" value="${req.requestURI}" />
@@ -596,7 +597,9 @@
 				<div class="row align-items-center mb-30 justify-content-between">
 					<div class="col-lg-6 col-sm-6">
 						<h6 class="page-title">Send Email To All Publisher</h6>
-						<c:if test="${count eq 1}"><div id="snackbar">${Msg}</div></c:if>
+						<c:if test="${message ne null}">
+        	       <div id="snackbar">${message}</div>
+               </c:if>
 					</div>
 					<div
 						class="col-lg-6 col-sm-6 text-sm-right mt-sm-0 mt-3 right-part">
@@ -606,9 +609,8 @@
 				<div class="row mb-none-30">
 					<div class="col-xl-12">
 						<div class="card">
-							<form action="/publisher/send-email" method="POST">
-								<input type="hidden" name="_token"
-									value="06QOLpvPvf65rP62EYlw9AjmwavrUpL92wOQrZBA">
+							<form:form action="/publisher/send-email" method="POST">
+								<sec:csrfInput />
 								<div class="card-body">
 									<div class="form-row">
 										<div class="form-group col-md-12">
@@ -621,7 +623,7 @@
 											<label class="font-weight-bold">Message <span
 												class="text-danger">*</span></label>
 											<textarea name="message" rows="10"
-												class="form-control nicEdit" placeholder="Your message"></textarea>
+												class="form-control nicEdit" placeholder="Your message" ></textarea>
 										</div>
 									</div>
 								</div>
@@ -635,7 +637,7 @@
 									</div>
 								</div>
 
-							</form>
+							</form:form>
 						</div>
 					</div>
 				</div>

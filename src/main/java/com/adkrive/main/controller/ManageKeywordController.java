@@ -20,7 +20,7 @@ public class ManageKeywordController {
 
 	@Autowired
 	private AdminService adminService;
-	public static int counter=0;
+	
 	@GetMapping("/keywords")
 	public String showReadManageKeywordPage(Model model) {
 		model.addAttribute("mkbrd", new ManageKeyWord());
@@ -30,11 +30,10 @@ public class ManageKeywordController {
 
 	@PostMapping("/add/keywords")
 	public String createManageKeywordPage(@ModelAttribute("mkbrd") ManageKeyWord maWord,RedirectAttributes redirectAttributes) {
-		counter=adminService.addKeyWords(maWord);
-		if(counter!=0)
+		int status=adminService.addKeyWords(maWord);
+		if(status!=0)
 		{
-			redirectAttributes.addFlashAttribute("count",counter);
-			redirectAttributes.addFlashAttribute("Msg",GeneralConstant.keywordmsg);
+			redirectAttributes.addFlashAttribute("message",GeneralConstant.keywordmsg);
 		}
 		return "redirect:/keywords";
 	}
@@ -54,9 +53,9 @@ public class ManageKeywordController {
 		 model.addAttribute("mkbrd",adminService.updateById(id).orElse(null));
 		if(adminService.updatemanageKeyword(id, maWord)!=null)
 		{
-			counter=2;
-			redirectAttributes.addFlashAttribute("count",counter);
-			redirectAttributes.addFlashAttribute("Msg",GeneralConstant.keywordEditmsg);
+			
+			
+			redirectAttributes.addFlashAttribute("message",GeneralConstant.keywordEditmsg);
 		}
 		 model.addAttribute("mkbrd",adminService.updateById(id).orElse(null));
 		 
@@ -65,11 +64,10 @@ public class ManageKeywordController {
 
 	@PostMapping("/remove/keywords/{id}")
 	public String deleteManageKeywordPage(@PathVariable Integer id,RedirectAttributes redirectAttributes) {
-		counter=adminService.deleteManageKeyword(id);
-		if(counter!=0)
+		int status=adminService.deleteManageKeyword(id);
+		if(status!=0)
 		{
-			redirectAttributes.addFlashAttribute("count",counter+2);
-			redirectAttributes.addFlashAttribute("Msg",GeneralConstant.keywordDeletemsg);
+			redirectAttributes.addFlashAttribute("message",GeneralConstant.keywordDeletemsg);
 		}
 		return "redirect:/keywords";
 	}

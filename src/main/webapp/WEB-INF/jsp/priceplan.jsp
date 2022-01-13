@@ -3,6 +3,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <c:set var="req" value="${pageContext.request}" />
 <c:set var="url">${req.requestURL}</c:set>
 <c:set var="uri" value="${req.requestURI}" />
@@ -619,8 +620,9 @@
 				<div class="row align-items-center mb-30 justify-content-between">
 					<div class="col-lg-6 col-sm-6">
 						<h6 class="page-title">Ad Price-plans</h6>
-						<c:if test="${count eq 1}"><div id="snackbar">${Msg}</div></c:if>
-         				<c:if test="${count eq 2}"><div id="snackbar">${Msg}</div></c:if>
+						 <c:if test="${message ne null}">
+        	               <div id="snackbar">${message}</div>
+                         </c:if>
 					</div>
 					<div
 						class="col-lg-6 col-sm-6 text-sm-right mt-sm-0 mt-3 right-part">
@@ -725,8 +727,7 @@
 										</button>
 									</div>
 									<div class="modal-body">
-										<input type="hidden" name="_token"
-											value="jknePbxtzvMJbYmSjc5NE0aKCoRKAMl3CBF3KDXo">
+										
 										<div class="row">
 											<div class="col-md-12">
 												<div class="form-group ">
@@ -755,7 +756,7 @@
 											<div class="col-md-12">
 												<div class="form-group">
 													<label class="form-control-label  font-weight-bold">Type<span
-														class="text-danger">*</span></label> <select name="type"
+														class="text-danger">*</span></label> <select name="type" required="required"
 														class="form-control">
 														<option>--select type--</option>
 														<option value="impression">Impression</option>
@@ -770,7 +771,7 @@
 													<label class="form-control-label  font-weight-bold">Credit<span
 														class="text-danger">*</span></label> <input class="form-control"
 														type="text" placeholder="Credit" name="credit" value=""
-														required>
+														required="required">
 												</div>
 											</div>
 										</div>
@@ -784,6 +785,7 @@
 											</li>
 										</div>
 									</div>
+									<sec:csrfInput />
 									<div class="modal-footer">
 										<button type="button" class="btn btn-secondary"
 											data-dismiss="modal">Close</button>

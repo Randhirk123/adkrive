@@ -36,7 +36,7 @@ import com.adkrive.main.model.Country;
 
 @Controller
 public class AdminAdvertiserController {
-	private static int counter=0;
+	
 	@Autowired
 	private AdminService adminService;
 	@Autowired
@@ -106,11 +106,10 @@ public class AdminAdvertiserController {
 		System.out.println(message);
 		boolean status = Utility.sendMailToAll(names, subject, message, mailSender);
 		if (status) {
-			redirectAttributes.addFlashAttribute("count",counter+1);
-			redirectAttributes.addFlashAttribute("Msg",GeneralConstant.advertserSendMsgToAll);
+			redirectAttributes.addFlashAttribute("message",GeneralConstant.advertserSendMsgToAll);
 			return "redirect:/advertiser/send-email";
 		} else {
-			model.addAttribute("Msg", "Mail send Failed to all Publishers");
+			model.addAttribute("message", "Mail send Failed");
 			return "redirect:/advertiser/send-email";
 		}
 
@@ -168,9 +167,7 @@ public class AdminAdvertiserController {
 			Model model,RedirectAttributes redirectAttributes) {
 		if(adminService.updateAdvertiserDetail(id, advertiser)!=null)
 		{
-			counter=1;
-			redirectAttributes.addFlashAttribute("count",counter);
-			redirectAttributes.addFlashAttribute("Msg",GeneralConstant.advertserMsg);
+			redirectAttributes.addFlashAttribute("message",GeneralConstant.advertserMsg);
 		}
 		model.addAttribute("advertise", adminService.updateByAdvertiserId(id).orElse(null));
 		return "redirect:/advertiser/details/{id}";
@@ -181,18 +178,17 @@ public class AdminAdvertiserController {
 			@ModelAttribute("advertise") Advertiser advertiser, Model model, HttpServletRequest req,RedirectAttributes redirectAttributes) {
 		String status = req.getParameter("act");
 	
-		counter=adminService.saveOrUpdateAdvAndTrans(amount, advertiser, new AdvTransactionLog(), status);
-		if(counter!=0)
+		int statusTest=adminService.saveOrUpdateAdvAndTrans(amount, advertiser, new AdvTransactionLog(), status);
+		if(statusTest!=0)
 		{
 			if(status!=null)
 			{
-				redirectAttributes.addFlashAttribute("count",counter+1);
-				redirectAttributes.addFlashAttribute("Msg",GeneralConstant.advertserAddMsg);
+				redirectAttributes.addFlashAttribute("message",GeneralConstant.advertserAddMsg);
 			}
 			else
 			{
-				redirectAttributes.addFlashAttribute("count",counter+1);
-				redirectAttributes.addFlashAttribute("Msg",GeneralConstant.advertserSubMsg);
+				
+				redirectAttributes.addFlashAttribute("message",GeneralConstant.advertserSubMsg);
 			}
 		}
 		return "redirect:/advertiser/details/{id}";

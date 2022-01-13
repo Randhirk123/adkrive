@@ -4,6 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <c:set var="req" value="${pageContext.request}" />
 <c:set var="url">${req.requestURL}</c:set>
 <c:set var="uri" value="${req.requestURI}" />
@@ -662,8 +663,9 @@
                 <div class="row align-items-center mb-30 justify-content-between">
     <div class="col-lg-6 col-sm-6">
         <h6 class="page-title">Advertiser details</h6>
-        <c:if test="${count eq 1}"><div id="snackbar">${Msg}</div></c:if>
-        <c:if test="${count eq 2}"><div id="snackbar">${Msg}</div></c:if>
+       <c:if test="${message ne null}">
+        	 <div id="snackbar">${message}</div>
+        </c:if>
     </div>
     <div class="col-lg-6 col-sm-6 text-sm-right mt-sm-0 mt-3 right-part">
             </div>
@@ -796,7 +798,7 @@
 
                     <form:form action="/advertiser/update/${id}" method="POST" modelAttribute="advertise"
                           enctype="multipart/form-data">
-                        <input type="hidden" name="_token" value="ZVtTDC1ZymuHWMLwsdqftDZT8fMSA4ZsNKNA67Qa">
+                       <sec:csrfInput />
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group ">
@@ -1175,7 +1177,7 @@
                     </button>
                 </div>
                 <form action="/advertiser/add-sub-balance/${id}" method="POST">
-                    <input type="hidden" name="_token" value="ZVtTDC1ZymuHWMLwsdqftDZT8fMSA4ZsNKNA67Qa">                    <div class="modal-body">
+                   <sec:csrfInput />                  <div class="modal-body">
                         <div class="form-row">
                             <div class="form-group col-md-12 fix">
                                 <input type="checkbox" data-width="100%" data-height="44px" data-onstyle="-success"

@@ -31,7 +31,7 @@ public class AdvertisesController {
 	@Autowired
 	private AdminService adminService;
 	
-	private static int counter=0;
+	
 	//All Advertiser started
 	@GetMapping("/advertise/all")
 	public String showAdvertisesAll(Model model) {
@@ -51,14 +51,13 @@ public class AdvertisesController {
 	
 	@PostMapping("/advertise/add/price-plan")
 	public String createPricePlan(@ModelAttribute("priceplan") PricePlan plan,RedirectAttributes redirectAttributes) {
-		counter=0;
-	counter=adminService.addPricePlan(plan);
+	
+	int status=adminService.addPricePlan(plan);
 	
 	
-		if(counter!=0)
+		if(status!=0)
 		{
-			redirectAttributes.addFlashAttribute("count",counter);
-			redirectAttributes.addFlashAttribute("Msg","Price Plan Created SuccessFully");
+			redirectAttributes.addFlashAttribute("message","Price Plan Created SuccessFully");
 		}
 		
 	
@@ -78,11 +77,11 @@ public class AdvertisesController {
 
 	@PostMapping("/advertise/update/price-plan/{id}")
 	public String updatePricePlanPage(@PathVariable Integer id, @ModelAttribute("priceplan") PricePlan plan,Model model,RedirectAttributes redirectAttributes) {
-		counter=adminService.updatePricePlan(id, plan);
-		if(counter!=0)
+		int status=adminService.updatePricePlan(id, plan);
+		if(status!=0)
 		{
-			redirectAttributes.addFlashAttribute("count",counter+1);
-			redirectAttributes.addFlashAttribute("Msg","Price Plan Updated SuccessFully");
+			
+			redirectAttributes.addFlashAttribute("message","Price Plan Updated SuccessFully");
 		}
 		model.addAttribute("priceplan", adminService.updatePricePlanById(id).orElse(null));
 		return "redirect:/advertise/price-plan";
@@ -114,14 +113,10 @@ public class AdvertisesController {
 
 	@PostMapping("/advertise/add/type")
 	public String createAdTypePage(@ModelAttribute("aidType") AdType aidType,RedirectAttributes redirectAttributes) {
-	 counter=adminService.addAidType(aidType);
-		if(counter!=0)
+	 int status=adminService.addAidType(aidType);
+		if(status!=0)
 		{
-			redirectAttributes.addFlashAttribute("count",counter);
-			redirectAttributes.addFlashAttribute("Msg",GeneralConstant.adTypeMsg);
-			
-			
-			
+			redirectAttributes.addFlashAttribute("message",GeneralConstant.adTypeMsg);
 		}
 		return "redirect:/advertise/type";
 	}
@@ -137,11 +132,10 @@ public class AdvertisesController {
 
 	@PostMapping("/advertise/update/type/{id}")
 	public String updateAidTypedPage(@PathVariable Integer id,RedirectAttributes redirectAttributes, @ModelAttribute("aidType") AdType aidType) {
-	 counter= adminService.updateAidType(id, aidType);
-		if(counter!=0)
+	 int status= adminService.updateAidType(id, aidType);
+		if(status!=0)
 		{
-			redirectAttributes.addFlashAttribute("count",counter+1);
-			redirectAttributes.addFlashAttribute("Msg",GeneralConstant.adTypeEditMsg);
+			redirectAttributes.addFlashAttribute("message",GeneralConstant.adTypeEditMsg);
 		}
 		return "redirect:/advertise/type";
 	}
@@ -157,11 +151,10 @@ public class AdvertisesController {
 	public String updateCpcAndCpmPage(@ModelAttribute("globalSetting") GlobalSetting setting,HttpServletRequest req,RedirectAttributes redirectAttributes)
 	{
 		Integer id=Integer.parseInt(req.getParameter("id").toString());
-       	counter=adminService.updateCpcAndCpm(id,setting.getCpc(),setting.getCpm());
-       	if(counter!=0)
+       	int status=adminService.updateCpcAndCpm(id,setting.getCpc(),setting.getCpm());
+       	if(status!=0)
 		{
-			redirectAttributes.addFlashAttribute("count",counter);
-			redirectAttributes.addFlashAttribute("Msg",GeneralConstant.CpcAndCpm);
+			redirectAttributes.addFlashAttribute("message",GeneralConstant.CpcAndCpm);
 		}
 		
 		return "redirect:/advertise/cpc&cpm";

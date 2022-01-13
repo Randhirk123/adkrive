@@ -3,6 +3,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <c:set var="req" value="${pageContext.request}" />
 <c:set var="url">${req.requestURL}</c:set>
 <c:set var="uri" value="${req.requestURI}" />
@@ -595,7 +596,9 @@
                 <div class="row align-items-center mb-30 justify-content-between">
     <div class="col-lg-6 col-sm-6">
         <h6 class="page-title">Cost per click &amp; Cost per impression</h6>
-        <c:if test="${count eq 1}"><div id="snackbar">${Msg}</div></c:if>
+        <c:if test="${message ne null}">
+        	 <div id="snackbar">${message}</div>
+        </c:if>
          				
     </div>
     <div class="col-lg-6 col-sm-6 text-sm-right mt-sm-0 mt-3 right-part">
@@ -647,7 +650,7 @@
                     <div class="card mt-25">
                         <div class="card-body">
                             <h5 class="card-title mb-15 border-bottom pb-2">Update CPC & CPM</h5>
-                                <input type="hidden" name="_token" value="LmP6vBly9CgjI7ivz0aSlMAEJzrrauNO4TDMIiTC">
+                                <sec:csrfInput />
                                 <input type="hidden" name="id" value="${globalSetting.id}">                                
                                 <div class="row">
                                     <div class="col-md-12">

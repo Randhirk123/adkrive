@@ -5,9 +5,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <c:set var="req" value="${pageContext.request}" />
 <c:set var="url">${req.requestURL}</c:set>
 <c:set var="uri" value="${req.requestURI}" />
+
 <!-- meta tags and other links -->
 <!DOCTYPE html>
 <html lang="en">
@@ -636,8 +638,9 @@
 				<div class="row align-items-center mb-30 justify-content-between">
 					<div class="col-lg-6 col-sm-6">
 						<h6 class="page-title">Publisher details</h6>
-						  <c:if test="${count eq 1}"><div id="snackbar">${Msg}</div></c:if>
-        <c:if test="${count eq 2}"><div id="snackbar">${Msg}</div></c:if>
+						  <c:if test="${message ne null}">
+        	 <div id="snackbar">${message}</div>
+        </c:if>
 					</div>
 					<div
 						class="col-lg-6 col-sm-6 text-sm-right mt-sm-0 mt-3 right-part">
@@ -799,8 +802,7 @@
 								<form:form action="/publisher/update/${id}"
 									modelAttribute="publish" method="POST"
 									onsubmit="return update1();" enctype="multipart/form-data">
-									<input type="hidden" name="_token"
-										value="xO4X6JbORO7bZlMiw12mcQgqDK5VFwAWBKrsIkEj">
+									<sec:csrfInput />
 									<div class="row">
 										<div class="col-md-12">
 											<div class="form-group ">
@@ -1196,8 +1198,7 @@
 							<form:form
 								action="/publisher/add-sub-balance/${publish.id}"
 								method="POST" modelAttribute="publish">
-								<input type="hidden" name="_token"
-									value="xO4X6JbORO7bZlMiw12mcQgqDK5VFwAWBKrsIkEj">
+								<sec:csrfInput />
 								<div class="modal-body">
 									<div class="form-row">
 										<div class="form-group col-md-12 fix">

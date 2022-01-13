@@ -2,6 +2,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <c:set var="req" value="${pageContext.request}" />
 <c:set var="url">${req.requestURL}</c:set>
 <c:set var="uri" value="${req.requestURI}" />
@@ -665,8 +666,9 @@
                 <div class="row align-items-center mb-30 justify-content-between">
     <div class="col-lg-6 col-sm-6">
         <h6 class="page-title">Ad types</h6>
-        <c:if test="${count eq 1}"><div id="snackbar">${Msg}</div></c:if>
-         <c:if test="${count eq 2}"><div id="snackbar">${Msg}</div></c:if>
+        <c:if test="${message ne null}">
+        	 <div id="snackbar">${message}</div>
+        </c:if>
         
     </div>
     <div class="col-lg-6 col-sm-6 text-sm-right mt-sm-0 mt-3 right-part">
@@ -765,12 +767,12 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <input type="hidden" name="_token" value="ys3lKvKTU0Nn3xNKKjnddAXbfwk0w6i3CJg2yEK1">                            <div class="row">
+                            <sec:csrfInput />                            <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group ">
                                         <label class="form-control-label font-weight-bold">Ad Name<span
                                                 class="text-danger">*</span></label>
-                                        <input  class="form-control" placeholder="Ad name" name="adName"
+                                        <input  class="form-control" placeholder="Ad name" name="adName" required="required"
                                               >
                                     </div>
                                 </div>
@@ -782,7 +784,7 @@
                                         <label class="form-control-label  font-weight-bold">Ad Type<span
                                                 class="text-danger">*</span></label>
                                         <input class="form-control" placeholder="Ad Type" type="text"
-                                               name="type">
+                                               name="type" required="required">
                                     </div>
                                 </div>
                             </div>
@@ -792,7 +794,7 @@
                                             class="text-danger">*</span></label>
                                     <div class="form-group  input-group has_append">
                                         <input type="text" class="form-control" placeholder="width"
-                                               name="width" id="width" required>
+                                               name="width" id="width" required="required">
                                         <div class="input-group-append">
                                             <div class="input-group-text">px</div>
                                         </div>
@@ -803,7 +805,7 @@
                                             class="text-danger">*</span></label>
                                     <div class="form-group  input-group has_append">
                                         <input type="text" class="form-control" placeholder="height"
-                                               name="height" id="height" required>
+                                               name="height" id="height" required="required">
                                         <div class="input-group-append">
                                             <div class="input-group-text">px</div>
                                         </div>
@@ -816,7 +818,7 @@
                                         <label class="form-control-label  font-weight-bold">Slug<span
                                                 class="text-danger">*</span></label>
                                         <input class="form-control" type="text" placeholder="slug"
-                                               id="slug" name="slug"  required readonly>
+                                               id="slug" name="slug"  required="required" readonly="readonly">
                                     </div>
                                 </div>
                             </div>
@@ -855,14 +857,14 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <input type="hidden" name="_token" value="ys3lKvKTU0Nn3xNKKjnddAXbfwk0w6i3CJg2yEK1">                            <div class="row">
+                            <sec:csrfInput />                         <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group ">
                                         <label class="form-control-label font-weight-bold">Ad Name<span
                                                 class="text-danger">*</span></label>
                                         <input class="form-control"  placeholder="ad name" type="text"
                                                name="adName"
-                                              required>
+                                              required="required">
                                     </div>
                                 </div>
                             </div>

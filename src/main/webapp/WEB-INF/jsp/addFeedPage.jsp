@@ -4,6 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <c:set var="req" value="${pageContext.request}" />
 <c:set var="url">${req.requestURL}</c:set>
 <c:set var="uri" value="${req.requestURI}" />
@@ -655,7 +656,7 @@ input:checked + .toggle:after {
 					<label for="status">status</label>
 						<input type="checkbox" name="status" id="switch" checked="checked"/><label for="switch" class="toggle">Toggle</label>
 					</div>
-					
+					 <sec:csrfInput /> 
 					<button type="submit" class="btn btn-primary">Submit</button>
 				</form:form>
 

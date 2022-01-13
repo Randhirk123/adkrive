@@ -43,7 +43,7 @@ public class AdminPublisherController {
 	@Autowired
 	private JavaMailSender mailSender;
 
-	private static int counter=0;
+	
 	@GetMapping("/publisher/all")
 	public String showReadAllPublisherPage(Model model) {
 		model.addAttribute("publish", new Publisher());
@@ -66,9 +66,8 @@ public class AdminPublisherController {
 		
 		if(adminService.updatePublisherDetail(id, publish)!=null)
 		{
-			counter=1;
-			redirectAttributes.addFlashAttribute("count",counter);
-			redirectAttributes.addFlashAttribute("Msg",GeneralConstant.publisherrMsg);
+			
+			redirectAttributes.addFlashAttribute("message",GeneralConstant.publisherrMsg);
 		}
 		model.addAttribute("publish", adminService.updateByPublisherId(id).orElse(null));
 		return "redirect:/publisher/details/{id}";
@@ -171,8 +170,8 @@ public class AdminPublisherController {
 			status=Utility.sendMailToSpecific(publisher.getEmail(),message, subject,mailSender);
 			if(status)
 			{
-				redirectAttributes.addFlashAttribute("count",counter+1);
-				redirectAttributes.addFlashAttribute("Msg",GeneralConstant.publisherSendMsg);
+				
+				redirectAttributes.addFlashAttribute("message",GeneralConstant.publisherSendMsg);
 			}
 			model.addAttribute("publish",adminService.getPublisherById(id).orElse(null));
 			return "redirect:/user/email/{id}/publisher";
@@ -183,8 +182,7 @@ public class AdminPublisherController {
 			status=Utility.sendMailToSpecific(advertiser.getEmail(), message, subject, mailSender);
 			if(status)
 			{
-				redirectAttributes.addFlashAttribute("count",counter+1);
-				redirectAttributes.addFlashAttribute("Msg",GeneralConstant.advertserSendMsg);
+				redirectAttributes.addFlashAttribute("message",GeneralConstant.advertserSendMsg);
 			}
 			model.addAttribute("advertise", adminService.getAdvertiserById(id).orElse(null));
 			return "redirect:/user/email/{id}/advertiser";
@@ -204,11 +202,10 @@ public class AdminPublisherController {
 		System.out.println(message);
 		boolean status = Utility.sendMailToAll(names, subject, message, mailSender);
 		if (status) {
-			redirectAttributes.addFlashAttribute("count",counter+1);
-			redirectAttributes.addFlashAttribute("Msg",GeneralConstant.publisherAllSendMsg);
+			redirectAttributes.addFlashAttribute("message",GeneralConstant.publisherAllSendMsg);
 			return "redirect:/publisher/send-email";
 		} else {
-			model.addAttribute("Msg", "Mail send Failed to all Publishers");
+			model.addAttribute("message", "Mail send Failed to all Publishers");
 			return "redirect:/publisher/send-email";
 		}
 

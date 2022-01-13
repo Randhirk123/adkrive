@@ -4,6 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <c:set var="req" value="${pageContext.request}" />
 <c:set var="url">${req.requestURL}</c:set>
 <c:set var="uri" value="${req.requestURI}" />
@@ -596,9 +597,9 @@
 				<div class="row align-items-center mb-30 justify-content-between">
 					<div class="col-lg-6 col-sm-6">
 						<h6 class="page-title">Keywords</h6>
-						<c:if test="${count eq 1}"><div id="snackbar">${Msg}</div></c:if>
-						<c:if test="${count eq 2}"><div id="snackbar">${Msg}</div></c:if>
-						<c:if test="${count eq 3}"><div id="snackbar">${Msg}</div></c:if>
+						 <c:if test="${message ne null}">
+        	 <div id="snackbar">${message}</div>
+        </c:if>
 					</div>
 					<div
 						class="col-lg-6 col-sm-6 text-sm-right mt-sm-0 mt-3 right-part">
@@ -682,8 +683,7 @@
 					aria-labelledby="exampleModalLabel" aria-hidden="true">
 					<div class="modal-dialog" role="document">
 						<form:form action="/add/keywords" modelAttribute="mkbrd" method="POST">
-							<input type="hidden" name="_token"
-								value="ipBFpnoAK3Uaf0P6WR82E2i332ccOk2nbmZTqYhA">
+							<sec:csrfInput />
 							<div class="modal-content">
 								<div class="modal-header">
 									<h5 class="modal-title" id="exampleModalLabel">Add
@@ -699,7 +699,7 @@
 										(<small class="ml-2 mt-2 text-facebook">Separate
 											multiple keywords in new line by press <code>enter</code> key
 										</small>)
-										<form:textarea name="keywords" path="keywords"  class="form-control" rows="3"
+										<form:textarea name="keywords" path="keywords"   class="form-control" rows="3" required="required"
 											placeholder="keyword one
 keyword two
 keyword three"></form:textarea>
@@ -720,8 +720,7 @@ keyword three"></form:textarea>
 					aria-hidden="true">
 					<div class="modal-dialog" role="document">
 						<form:form action="/update/keywords/${element.id}" modelAttribute="mkbrd" method="POST">
-							<input type="hidden" name="_token"
-								value="ipBFpnoAK3Uaf0P6WR82E2i332ccOk2nbmZTqYhA">
+							<<sec:csrfInput />
 							<div class="modal-content">
 								<div class="modal-header">
 									<h5 class="modal-title" id="exampleModalLabel">Update
@@ -735,7 +734,7 @@ keyword three"></form:textarea>
 								<div class="modal-body">
 									<div class="form-group">
 										<label class="form-control-label font-weight-bold">Keywords</label>
-										<input type="text" class="form-control" name="keywords" title="" >
+										<input type="text" class="form-control" name="keywords" required="required" title="" >
 									</div>
 								</div>
 								<div class="modal-footer">
@@ -761,8 +760,7 @@ keyword three"></form:textarea>
 							<form action="" method="POST">
 								<div class="modal-body text-center">
 
-									<input type="hidden" name="_token"
-										value="ipBFpnoAK3Uaf0P6WR82E2i332ccOk2nbmZTqYhA"> <i
+									<sec:csrfInput /> <i
 										class="las la-exclamation-circle text-danger f-size--100  mb-15"></i>
 									<h3 class="text--secondary mb-15">Are You Sure Want to
 										Delete This?</h3>

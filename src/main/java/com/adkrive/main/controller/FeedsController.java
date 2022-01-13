@@ -4,6 +4,8 @@ import java.net.URI;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletRequest;
@@ -46,6 +48,7 @@ public class FeedsController {
 		Map<String, List<Feeds>> mapList = new HashMap<String, List<Feeds>>();
 		boolean status=false;
 		List<FeedNetwork> feedNetworks=null;
+		List<Feeds> listFeed=null;
 		List<Feeds> feedChecker=feedService.getAllChecker();
 		 
 		for(int i=0; i<feedChecker.size(); i++)
@@ -64,11 +67,22 @@ public class FeedsController {
 		else
 		{
 			feedNetworks=feednetworkRepository.getAllActiveNetwork();
+			
 		}
+		
+		
 		
 		for (FeedNetwork feedNetwork : feedNetworks) {
 			
-			mapList.put(feedNetwork.getNewtworkName(), feedNetwork.getFeeds());
+			if(status!=true)
+			{
+				listFeed=feedNetwork.getFeeds().stream().filter(f->f.isStatus()==true).collect(Collectors.toList());
+			}
+			else
+			{
+				listFeed=feedNetwork.getFeeds();
+			}
+			mapList.put(feedNetwork.getNewtworkName(),listFeed);
 		}
 		model.addAttribute("status", status);
 		model.addAttribute("networkList", mapList);
