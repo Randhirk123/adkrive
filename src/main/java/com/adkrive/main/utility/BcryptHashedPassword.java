@@ -13,5 +13,11 @@ public class BcryptHashedPassword {
 	public static boolean matches(String rawpass, String hash) {
 		return bCryptPasswordEncoder.matches(rawpass, hash);
 	}
+	
+	/*
+	 * public static void main(String[] args) {
+	 * 
+	 * System.out.println(hashedPassword("Test@1234")); }
+	 */
 
 }
